@@ -1,0 +1,24 @@
+{
+  "name": "schedule-x",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwarwick/schedule-x.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nwarwick/schedule-x/issues"
+  },
+  "homepage": "https://github.com/nwarwick/schedule-x#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.1"
+  }
+}

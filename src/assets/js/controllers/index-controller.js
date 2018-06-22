@@ -1,24 +1,29 @@
 import { fetchLaunches } from '../services/launch-service'
+import { getTemplate } from '../templates/launch-template'
 
 let launches = []
-
+let launchListElement = document.getElementById('launch-list')
 
 function init() {
-  console.log('Initializing..')
 
-  getLaunches()
-
-
+  getLaunches().then(() => {
+    displayLaunches()
+  })
 }
 
 async function getLaunches() {
   launches = await fetchLaunches()
-  console.log('Launches: ', launches);
 
   if (launches.error) {
     console.log('Error: ', launches.error)
   }
+}
 
+function displayLaunches() {
+
+  for (let launch of launches) {
+    launchListElement.appendChild(getTemplate(launch))
+  }
 }
 
 init()

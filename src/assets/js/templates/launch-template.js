@@ -1,18 +1,19 @@
 
+import moment from 'moment'
 
 function getTemplate(launch) {
   let template = `
     <div class="card-header">
-      <h2>Mission: ${launch.mission_name}</h2>
+      Mission: ${launch.mission_name}
     </div>
     <div class="card-body">
-      Launch date: ${launch.launch_date_utc}
+      <span class="text-bold">Launch date</span>: ${moment(launch.launch_date_utc).format('LL')}
       <br>
-      Launch location: ${launch.launch_site.site_name_long}
+      <span class="text-bold">Launch location</span>: ${launch.launch_site.site_name_long}
       <br>
-      Rocket: ${launch.rocket.rocket_name}
+      <span class="text-bold">Rocket</span>: ${launch.rocket.rocket_name}
       <br>
-      Payload: ${launch.rocket.second_stage.payloads}
+      <span class="text-bold">Payload</span>: ${launch.rocket.second_stage.payloads}
     </div>
   `
 

@@ -20,7 +20,8 @@
   "homepage": "https://github.com/nwarwick/schedule-x#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "moment": "^2.22.2"
   },
   "devDependencies": {
     "node-sass": "^4.9.0"

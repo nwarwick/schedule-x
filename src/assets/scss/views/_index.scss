@@ -1,0 +1,35 @@
+#index-page {
+  height: 100%;
+  background:linear-gradient(135deg, #31349b 0%,#252774 100%) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  #launch-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+  }
+
+  .launch-count-wrapper {
+    width: 600px;
+    margin: auto;
+    color: $white;
+  }
+}
+
+.main-header {
+  text-align: center;
+  padding: 3rem;
+  color: $white;
+
+  .main-title {
+    font-size: 3rem;
+    font-weight: 900;
+    
+  }
+}
+

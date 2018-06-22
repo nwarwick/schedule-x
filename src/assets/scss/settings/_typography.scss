@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Base font size and font type
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $primary-text;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+.text-bold {
+  font-weight: 900;
+}

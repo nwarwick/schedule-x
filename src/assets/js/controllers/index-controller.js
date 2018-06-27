@@ -20,14 +20,14 @@ function init() {
 async function getLaunches() {
   launches = await fetchLaunches()
 
+  if (launches.error) {
+    console.log('Error: ', launches.error)
+  }
+
   // Sort the launches
   launches.sort((a, b) => {
     return new Date(a.launch_date_unix) > new Date(b.launch_date_unix)
   })
-
-  if (launches.error) {
-    console.log('Error: ', launches.error)
-  }
 }
 
 function displayLaunches() {

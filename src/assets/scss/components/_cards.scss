@@ -1,5 +1,4 @@
 .card {
-  // background: $white;
   background: $card-color-dark;
   color: $text-light;
   width: 100%;
@@ -9,6 +8,7 @@
 
   .card-header {
     padding-top: 2rem;
+    padding-bottom: 2rem;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
@@ -36,5 +36,4 @@
     width: 23%;
     font-weight: bold;
   }
-  
 }

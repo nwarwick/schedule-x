@@ -12,6 +12,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 600px;
+
+    @media (max-width: 715px) {
+      width: 100%;
+    }
   }
 
   .launch-count-wrapper {
@@ -33,4 +37,3 @@
     
   }
 }
-

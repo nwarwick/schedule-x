@@ -3,7 +3,6 @@ import axios from 'axios'
 async function fetchLaunches(params) {
   try {
     let res = await axios.get('https://api.spacexdata.com/v2/launches/upcoming')
-    console.log('Serivce response: ', res);
 
     return res.data
   } catch (error) {

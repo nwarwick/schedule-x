@@ -2,18 +2,42 @@
 import moment from 'moment'
 
 function getTemplate(launch) {
+  console.log('test: ', Object.values(launch.links))
   let template = `
     <div class="card-header">
       Mission: ${launch.mission_name}
     </div>
     <div class="card-body">
-      <span class="text-bold">Launch date</span>: ${moment(launch.launch_date_utc).format('LL')}
-      <br>
-      <span class="text-bold">Launch location</span>: ${launch.launch_site.site_name_long}
-      <br>
-      <span class="text-bold">Rocket</span>: ${launch.rocket.rocket_name}
-      <br>
-      <span class="text-bold">Payload</span>: ${launch.rocket.second_stage.payloads}
+      <div class="card-row">
+        <div class="card-label">Launch date:</div> 
+        <div class="card-info">${moment(launch.launch_date_utc).format('LL')}</div>
+      </div>
+      <div class="card-row">
+        <div class="card-label">Launch location:</div>
+        <div class="card-info">${launch.launch_site.site_name_long}</div> 
+      </div>    
+      <div class="card-row">
+        <div class="card-label">Rocket:</div> 
+        <div class="card-info">${launch.rocket.rocket_name}</div>
+      </div>
+      <div class="card-row">
+        <div class="card-label">Payload:</div> 
+        <div class="card-info">${launch.rocket.second_stage.payloads}</div>
+      </div>
+    ${ launch.links.length > 0 ?
+      `<div class="card-row">
+        <div class="card-label">Links:</div> 
+          <div class="card-info">
+                ${
+      Object.values(launch.links)
+        .map(item => `<li class="card-link" ><a href="${item}">${item}</a></li>`).join('')
+      }
+          </div>
+      </div>`
+      :
+      ``
+    }
+       
     </div>
   `
 

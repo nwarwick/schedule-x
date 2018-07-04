@@ -1,6 +1,7 @@
 import moment from 'moment'
 import { fetchLaunches } from '../services/launch-service'
 import { getTemplate } from '../templates/launch-template'
+import { format } from 'path';
 
 let launches = []
 let launchListElement = document.getElementById('launch-list')
@@ -24,10 +25,7 @@ async function getLaunches() {
     console.log('Error: ', launches.error)
   }
 
-  // Sort the launches
-  launches.sort((a, b) => {
-    return new Date(a.launch_date_unix) > new Date(b.launch_date_unix)
-  })
+  return formatLaunches(launches)
 }
 
 function displayLaunches() {
@@ -47,6 +45,21 @@ function displayTimeFrame() {
   // Get a time frame in days from now till the laast launch date
   let timeFrame = lastLaunch.diff(moment(), 'days')
   launchTimeFrameElement.innerText = timeFrame
+}
+
+function formatLaunches(launches) {
+  // Remove dead links
+  for (let launch of launches) {
+    launch.links = Object.values(launch.links)
+      .filter(item => {
+        return item != null
+      })
+  }
+
+  // Sort the launches
+  launches.sort((a, b) => {
+    return new Date(a.launch_date_unix) > new Date(b.launch_date_unix)
+  })
 }
 
 init()

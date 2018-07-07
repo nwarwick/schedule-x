@@ -20,10 +20,6 @@ function getTemplate(launch) {
         <div class="card-label">Rocket:</div> 
         <div class="card-info">${launch.rocket.rocket_name}</div>
       </div>
-      <div class="card-row">
-        <div class="card-label">Payload:</div> 
-        <div class="card-info">${launch.rocket.second_stage.payloads}</div>
-      </div>
     ${ launch.links.length > 0 ?
       `<div class="card-row">
         <div class="card-label">Links:</div> 

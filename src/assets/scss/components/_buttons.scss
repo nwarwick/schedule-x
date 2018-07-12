@@ -1,0 +1,17 @@
+.btn {
+  border: 1px solid $primary-color;
+  background-color: transparent;
+  border-radius: 5px;
+  color: $text-purple;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1rem;
+  padding: .5rem .9rem; 
+  transition: .2s ease;
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $primary-color-dark;
+    color: $text-light;
+  }
+}

@@ -2,7 +2,6 @@
 import moment from 'moment'
 
 function getTemplate(launch) {
-  console.log('test: ', Object.values(launch.links))
   let template = `
     <div class="card-header">
       <span class="card-header-title">Mission: ${launch.mission_name}</span>

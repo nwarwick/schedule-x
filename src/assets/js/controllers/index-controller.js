@@ -1,11 +1,12 @@
 import moment from 'moment'
 import { fetchLaunches } from '../services/launch-service'
 import { getTemplate } from '../templates/launch-template'
-import { launchCount } from '../templates/launch-count-template'
+import { launchCountTemplate } from '../templates/launch-count-template'
 import { format } from 'path';
 
 let launches = []
 let launchListElement = document.getElementById('launch-list')
+let launchCountWrapper = document.querySelector('.launch-count-wrapper')
 let launchCountElement = document.getElementById('launch-count')
 let launchTimeFrameElement = document.getElementById('launch-time-frame')
 let viewPayloadButtons;
@@ -17,11 +18,9 @@ function init() {
   getLaunches().then(() => {
     displayLaunches()
     displayCount()
-    displayTimeFrame()
     viewPayloadButtons = document.querySelectorAll('.view-payload-button')
     viewPayloadButtons.forEach(element => element.addEventListener('click', viewPayload));
   })
-
 }
 
 async function getLaunches() {
@@ -42,15 +41,16 @@ function displayLaunches() {
 }
 
 function displayCount() {
-  launchCountElement.innerText = launches.length.toString();
+  let template = launchCountTemplate(launches.length.toString(), getTimeFrame())
+  launchCountWrapper.appendChild(template);
 }
 
-function displayTimeFrame() {
+function getTimeFrame() {
   // Get the date of the last launch
   let lastLaunch = moment(launches[launches.length - 1].launch_date_utc)
   // Get a time frame in days from now till the laast launch date
   let timeFrame = lastLaunch.diff(moment(), 'days')
-  launchTimeFrameElement.innerText = timeFrame
+  return timeFrame
 }
 
 function formatLaunches(launches) {

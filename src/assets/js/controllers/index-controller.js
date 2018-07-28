@@ -1,12 +1,16 @@
 import moment from 'moment'
 import { fetchLaunches } from '../services/launch-service'
 import { getTemplate } from '../templates/launch-template'
+import { launchCount } from '../templates/launch-count-template'
 import { format } from 'path';
 
 let launches = []
 let launchListElement = document.getElementById('launch-list')
 let launchCountElement = document.getElementById('launch-count')
 let launchTimeFrameElement = document.getElementById('launch-time-frame')
+let viewPayloadButtons;
+
+// Use dialog element for modal
 
 function init() {
 
@@ -14,6 +18,8 @@ function init() {
     displayLaunches()
     displayCount()
     displayTimeFrame()
+    viewPayloadButtons = document.querySelectorAll('.view-payload-button')
+    viewPayloadButtons.forEach(element => element.addEventListener('click', viewPayload));
   })
 
 }
@@ -60,6 +66,10 @@ function formatLaunches(launches) {
   launches.sort((a, b) => {
     return new Date(a.launch_date_unix) > new Date(b.launch_date_unix)
   })
+}
+
+function viewPayload(event) {
+  console.log('event: ', event)
 }
 
 init()

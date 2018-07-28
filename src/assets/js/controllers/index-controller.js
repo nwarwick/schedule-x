@@ -34,7 +34,6 @@ async function getLaunches() {
 }
 
 function displayLaunches() {
-  console.log('Displaying');
   for (let launch of launches) {
     launchListElement.appendChild(getTemplate(launch))
   }

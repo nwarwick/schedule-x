@@ -5,7 +5,7 @@ function getTemplate(launch) {
   console.log('test: ', Object.values(launch.links))
   let template = `
     <div class="card-header">
-      Mission: ${launch.mission_name}
+      <span class="card-header-title">Mission: ${launch.mission_name}</span>
     </div>
     <div class="card-body">
       <div class="card-row">

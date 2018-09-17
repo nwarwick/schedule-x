@@ -57,7 +57,7 @@ function formatLaunches(launches) {
   for (let launch of launches) {
     launch.links = Object.values(launch.links)
       .filter(item => {
-        return item != null
+        return (item != null && item != '')
       })
   }
 

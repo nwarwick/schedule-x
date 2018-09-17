@@ -1,5 +1,5 @@
 # ScheduleX
-ScheduleX provides a list of all the upcoming SpaceX launches as well as detailed information about each launch such as the payload, rocket type, etc.
+ScheduleX provides a list of all the upcoming SpaceX launches as well as detailed information about each launch.
 
 ## Instructions
 1. Check out the repository.
